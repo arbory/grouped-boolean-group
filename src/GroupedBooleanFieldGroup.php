@@ -1,12 +1,19 @@
 <?php
 
-namespace ArboryNova\GroupedBooleanGroup;
+namespace Arbory\NovaGroupedBooleanFieldGroup;
 
 use Laravel\Nova\Fields\BooleanGroup;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class GroupedBooleanGroup extends BooleanGroup
+class GroupedBooleanFieldGroup extends BooleanGroup
 {
+    /**
+     * The field's component.
+     *
+     * @var string
+     */
+    public $component = 'nova-grouped-boolean-field-group';
+
     protected string $optionNameAttribute;
 
     protected ?string $optionLabelAttribute;
@@ -42,13 +49,6 @@ class GroupedBooleanGroup extends BooleanGroup
     }
 
     /**
-     * The field's component.
-     *
-     * @var string
-     */
-    public $component = 'grouped-boolean-group';
-
-    /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
@@ -76,7 +76,7 @@ class GroupedBooleanGroup extends BooleanGroup
      * @param  array|\Closure|\Illuminate\Support\Collection
      * @return $this
      */
-    public function options($options): GroupedBooleanGroup
+    public function options($options): GroupedBooleanFieldGroup
     {
         if (is_callable($options)) {
             $this->options = $options();
@@ -101,77 +101,77 @@ class GroupedBooleanGroup extends BooleanGroup
         return $this;
     }
 
-    public function setOptionLabelAttribute($optionLabelAttribute): GroupedBooleanGroup
+    public function setOptionLabelAttribute($optionLabelAttribute): GroupedBooleanFieldGroup
     {
         $this->optionLabelAttribute = $optionLabelAttribute;
 
         return $this;
     }
 
-    public function setFilterLabel(string $filterLabel): GroupedBooleanGroup
+    public function setFilterLabel(string $filterLabel): GroupedBooleanFieldGroup
     {
         $this->filterLabel = $filterLabel;
 
         return $this;
     }
 
-    public function setGlobalSelectAllLabel(string $globalSelectAllLabel): GroupedBooleanGroup
+    public function setGlobalSelectAllLabel(string $globalSelectAllLabel): GroupedBooleanFieldGroup
     {
         $this->globalSelectAllLabel = $globalSelectAllLabel;
 
         return $this;
     }
 
-    public function setRowLayout(): GroupedBooleanGroup
+    public function setRowLayout(): GroupedBooleanFieldGroup
     {
         $this->withMeta(['rowLayout' => true, 'stacked' => true, 'fullWidthContent' => true]);
 
         return $this;
     }
 
-    public function setFullWidthColumnLayout(): GroupedBooleanGroup
+    public function setFullWidthColumnLayout(): GroupedBooleanFieldGroup
     {
         $this->withMeta(['fullWidthColumnLayout' => true, 'stacked' => true, 'fullWidthContent' => true]);
 
         return $this;
     }
 
-    public function setFullWidth(): GroupedBooleanGroup
+    public function setFullWidth(): GroupedBooleanFieldGroup
     {
         $this->withMeta(['fullWidthContent' => true, 'stacked' => true]);
 
         return $this;
     }
 
-    public function withGlobalToggling(): GroupedBooleanGroup
+    public function withGlobalToggling(): GroupedBooleanFieldGroup
     {
         $this->withMeta(['fieldClasses' => 'relative', 'globalToggle' => true]);
 
         return $this;
     }
 
-    public function withGroupToggling(): GroupedBooleanGroup
+    public function withGroupToggling(): GroupedBooleanFieldGroup
     {
         $this->withMeta(['groupToggle' => true]);
 
         return $this;
     }
 
-    public function openGroupsInDetails(): GroupedBooleanGroup
+    public function openGroupsInDetails(): GroupedBooleanFieldGroup
     {
         $this->openGroupsInDetails = true;
 
         return $this;
     }
 
-    public function openGroupsInForm(): GroupedBooleanGroup
+    public function openGroupsInForm(): GroupedBooleanFieldGroup
     {
         $this->openGroupsInForm = true;
 
         return $this;
     }
 
-    public function openGroups(): GroupedBooleanGroup
+    public function openGroups(): GroupedBooleanFieldGroup
     {
         $this->openGroupsInDetails();
         $this->openGroupsInForm();
@@ -179,7 +179,7 @@ class GroupedBooleanGroup extends BooleanGroup
         return $this;
     }
 
-    public function openField(): GroupedBooleanGroup
+    public function openField(): GroupedBooleanFieldGroup
     {
         $this->openFieldInDetails();
         $this->openFieldInForm();
@@ -187,28 +187,28 @@ class GroupedBooleanGroup extends BooleanGroup
         return $this;
     }
 
-    public function openFieldInDetails(): GroupedBooleanGroup
+    public function openFieldInDetails(): GroupedBooleanFieldGroup
     {
         $this->openFieldInDetails = true;
 
         return $this;
     }
 
-    public function openFieldInForm(): GroupedBooleanGroup
+    public function openFieldInForm(): GroupedBooleanFieldGroup
     {
         $this->openFieldInForm = true;
 
         return $this;
     }
 
-    public function withGlobalSelectAll(): GroupedBooleanGroup
+    public function withGlobalSelectAll(): GroupedBooleanFieldGroup
     {
         $this->withMeta(['globalSelectAll' => true, 'fieldClasses' => 'relative']);
 
         return $this;
     }
 
-    public function withGroupSelectAll(): GroupedBooleanGroup
+    public function withGroupSelectAll(): GroupedBooleanFieldGroup
     {
         $this->withMeta(['groupSelectAll' => true]);
 
@@ -219,7 +219,7 @@ class GroupedBooleanGroup extends BooleanGroup
      * @param array $filterOptions
      * @return $this
      */
-    public function withFilters(array $filterOptions): GroupedBooleanGroup
+    public function withFilters(array $filterOptions): GroupedBooleanFieldGroup
     {
         $this->withMeta([
             'hasFilters' => true,
@@ -247,8 +247,8 @@ class GroupedBooleanGroup extends BooleanGroup
             'options' => $this->finalizeOptions(),
             'openInDetails' => $this->openFieldInDetails,
             'openInForm' => $this->openFieldInForm,
-            'globalSelectAllLabel' => $this->globalSelectAllLabel ?? __('grouped-boolean-group::field.global_select_all'),
-            'filterLabel' => $this->filterLabel ?? __('grouped-boolean-group::field.filter_label')
+            'globalSelectAllLabel' => $this->globalSelectAllLabel ?? __('nova-grouped-boolean-field-group::field.global_select_all'),
+            'filterLabel' => $this->filterLabel ?? __('nova-grouped-boolean-field-group::field.filter_label')
         ], parent::jsonSerialize());
     }
 }
