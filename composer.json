@@ -1,5 +1,5 @@
 {
-    "name": "arbory-nova/grouped-boolean-group",
+    "name": "arbory/nova-grouped-boolean-field-group",
     "description": "A Laravel Nova field.",
     "keywords": [
         "laravel",
@@ -7,17 +7,17 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.4.0"
+        "php": "^7.3|^8.0"
     },
     "autoload": {
         "psr-4": {
-            "ArboryNova\\GroupedBooleanGroup\\": "src/"
+            "Arbory\\NovaGroupedBooleanFieldGroup\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "ArboryNova\\GroupedBooleanGroup\\FieldServiceProvider"
+                "Arbory\\NovaGroupedBooleanFieldGroup\\FieldServiceProvider"
             ]
         }
     },
