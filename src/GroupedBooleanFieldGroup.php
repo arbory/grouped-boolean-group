@@ -2,10 +2,10 @@
 
 namespace Arbory\NovaGroupedBooleanFieldGroup;
 
-use Laravel\Nova\Fields\BooleanGroup;
+use Laravel\Nova\Fields\Field;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class GroupedBooleanFieldGroup extends BooleanGroup
+class GroupedBooleanFieldGroup extends Field
 {
     /**
      * The field's component.

@@ -1,12 +1,12 @@
 <template>
-    <icon
+    <Icon
         v-if="value"
         :viewBox="viewBox"
         :width="width"
         :height="height"
         :type="type"
     />
-    <icon
+    <Icon
         v-else
         :viewBox="viewBox"
         :width="width"

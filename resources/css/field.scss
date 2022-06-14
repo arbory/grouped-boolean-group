@@ -1,7 +1,12 @@
 .field-collapse {
+    justify-content: flex-end;
     position: absolute;
-    top: 37px;
+    top: 30px;
     width: calc(100% - 60px);
+}
+
+.details-field-collapse {
+    justify-content: flex-end;
 }
 
 .full-width {
