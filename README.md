@@ -110,4 +110,4 @@ return Permission::query()
 
 It is possible to set custom field labels for global toggle and filter field.
 
-To do so, use ```setGlobalSelectAllLabel()``` or ```setFilterLabel()``` method.
+To do so, use ```setGlobalSelectAllLabel()``` or ```setFilterLabel()``` method and pass a string of your choice.
